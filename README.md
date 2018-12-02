@@ -2,7 +2,7 @@
 
 ## For TUJIANX Project's python client(Use Python 3)
 
-纯命令行，超高性能（雾）
+无GUI，超高性能（雾）
 
 事先请安装以下pip包
 
