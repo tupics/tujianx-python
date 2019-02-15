@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import json
 import urllib.request
+import urllib.parse
 
 import restartmodule
 
@@ -22,16 +23,16 @@ def getpicinfo(cate,act):
 def getpicfile(link, picid):
     "用于获取图片文件"
     import os
-    import filetype
+    import imghdr
     print(link)
-    storagedir = os.path.expanduser('~') + '/TUJIANPIC'
+    storagedir = os.path.expanduser('~') + '/TUJIANPIC/'
     if not os.path.exists(storagedir):
-        os.mkdir(storagedir, 755)
+        os.mkdir(storagedir)
     path = storagedir + picid
     urllib.request.urlretrieve(link, path)
-    pictype = filetype.guess(path)
-    if not os.path.exists(path + '.' + pictype.extension):
-        os.rename(path, path + '.' + pictype.extension)
+    pictype = imghdr.what(path)
+    if not os.path.exists(path + '.' + pictype):
+        os.rename(path, path + '.' + pictype)
     else:
         os.remove(path)
-    return path + '.' + pictype.extension
+    return path + '.' + pictype

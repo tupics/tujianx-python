@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 import get
+import webbrowser
 
 #user_agent = "tujianx-python/0x38"
 catelist = ['杂烩', '二次元', '电脑壁纸']
@@ -15,10 +16,10 @@ if selectactup == 0:
     if selopen == 'Y':
         print('Opening...')
         pathlast = get.getpicfile(picdata['p_link'], picdata['PID'])
-        from PIL import Image
         print(pathlast)
-        img = Image.open(pathlast)
-        img.show()
+        webbrowser.open('file://' + pathlast)
+        #img = Image.open(pathlast)
+        #img.show()
     elif selopen == "N":
         selsave = input('单独保存它？(Y/N)')
         if selsave == "Y":
