@@ -25,3 +25,7 @@ def TodayInfo(TID):
         return Info
     else:
         return False
+
+def List(TID, Page):
+    url = '{0}/list?page={1}&size=3&sort={2}&op=asc'.format(Api, Page, TID)
+    return req.get(url, headers=headers).json()
